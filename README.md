@@ -1,5 +1,5 @@
 # Установлена система Linux Debian 10
-![Image alt](https://github.com/redrockstyle/admlinux/blob/main/deb.PNG)
+![Image alt](https://github.com/redrockstyle/admlinux/blob/hw1/deb.PNG)
 ____
 ## Вопросы
 1. основные принципы Unix-way
