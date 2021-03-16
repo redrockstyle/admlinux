@@ -50,3 +50,6 @@ ps
 ```
 killall -s stop tar
 ```
+Пример работы программы proc.c:
+
+![screenproc](proc.PNG?raw=true)
