@@ -10,7 +10,7 @@
 int main(int argc, char *argv[], char **envp){
   FILE *logfile = fopen("logfile.txt", "a");
   int *pid;
-  char msg[255];
+  char message[255];
   int pcount, icount, fcount, stat;
 
   if (argc < 3) {
