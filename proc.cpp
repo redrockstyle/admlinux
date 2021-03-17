@@ -12,8 +12,8 @@ std::mutex mutex;
 
 void write_log(const std::string& message, int iteration_number) {
 	mutex.lock();
-	std::ofstream ofs("log.txt", std::ios::app);
-	ofs << "Iteration: " << iteration_number << "; " << message << std::endl;
+	std::ofstream ofs("logfile.txt", std::ios::app);
+	ofs << "iter: " << iteration_number << "; " << message << std::endl;
 	mutex.unlock();
 }
 
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 	std::string message(argv[1]);
 	int processes_number = std::atoi(argv[2]);
 	int iterations_number = std::atoi(argv[3]);
-	std::ofstream ofs("log.txt");
+	std::ofstream ofs("logfile.txt");
 	ofs.close();
 	std::vector<pid_t> children_pids;
 	pid_t pid;
