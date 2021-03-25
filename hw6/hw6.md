@@ -1,7 +1,7 @@
 1 Какая команда позволяет установить задания планировщика?
 ```
-	at <time> <date>
-	crontab -e <command>
+   at <time> <date>
+   crontab -e <command>
 ```
 2 Что сделает Команда atrm 7?
 ```
