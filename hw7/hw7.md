@@ -108,7 +108,10 @@ POP3
 "на лету":
 ip addr add 192.168.234.11/24 dev eth0
 через конфиг:
-
+```
+![conf](ints.PNG?raw=true)
+```
+systemctl restart networking
 ```
 2 Остановить и запустить сетевой интерфейс eth0
 ```
@@ -138,7 +141,9 @@ dhcpcd
 ```
 6 проверить пропускную способность между виртуальными машинами
 ```
-ethtool eth0
+iperf -c <address>
 ```
 7 настроить связь между виртуальными машинами через vlan 15
-![~](~.PNG?raw=true)
+![cat1](cat1.PNG?raw=true)
+![cat2](cat2.PNG?raw=true)
+![ping](ping.PNG?raw=true)
