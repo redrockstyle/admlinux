@@ -79,6 +79,7 @@ systemctl start apache2.service
 Разрешение доступа к 80 порту:
 iptables -I INPUT -s 192.168.11.1 -p tcp -m tcp --dport 80 -j ACCEPT
 ```
+![restoreserv](restoreserv.PNG?raw=true)
 ***
 2 затем закрыть доступ из этой подсети по icmp, осавив доступ по ssh, продемонстрировать что хост по ssh доступен а icmp нет
 ***
