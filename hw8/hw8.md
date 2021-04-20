@@ -59,11 +59,53 @@ iptables -D CHAIN
 Создать правило до определённого правила в цепочке:
 iptables -I CHAIN 5 -s 192.168.0.1 -j ACTION
 ```
-
-**Лабораторная работа:**
-
+***
+***Лабораторная работа:***
 взять за основу конфигурационный файл iptables ниже, поднять в системе веб сервер.
-
+***
+```
+Поднят сервер командой:
+systemctl start apache2.service
+```
+![startserv](startserv.PNG?raw=true)
+***
 1 настроить правила которые разрешают доступ на этот сервер с определенной подсети или хоста в которой находитесь вы как клиент, продемонстрировать что работает icmp
+***
+```
+Загрузка правил chelgu_iptables:
+```
+![setiptables](setiptables.PNG?raw=true)
+```
+Разрешение доступа к 80 порту:
+iptables -I INPUT -s 192.168.11.1 -p tcp -m tcp --dport 80 -j ACCEPT
+```
+***
 2 затем закрыть доступ из этой подсети по icmp, осавив доступ по ssh, продемонстрировать что хост по ssh доступен а icmp нет
+***
+![line](line.PNG?raw=true)
+```
+Удаление правила:
+iptables -D INPUT 1
+
+Запрещаем подключаться с хостовой машины:
+iptables -I INPUT -s 192.168.11.1 -p tcp -m tcp -j DROP
+
+Разрешаем подключаться по ssh:
+iptables -I INPUT -s 192.168.11.1 -p tcp -m tcp --dport 22 -j ACCEPT
+```
+![noicmp](ssh.PNG?raw=true)
+***
 3 Запретить только ssh , продемонстрировать что icmp работает, но сервер не пингается
+***
+```
+Удаление правил в порядке:
+iptables –D INPUT 1
+iptables –D INPUT 4
+
+Разрешаем любые соединения:
+iptables -I INPUT -s 192.168.11.1 -p tcp -m tcp -j ACCEPT
+
+Запрещаем только icmp:
+iptables -I INPUT -s 192.168.11.1 -p icmp --icmp-type echo-request -j REJECT
+```
+![noping](noping.PNG?raw=true)
