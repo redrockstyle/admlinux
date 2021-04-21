@@ -84,7 +84,7 @@ iptables -I INPUT -s 192.168.11.1 -p tcp --dport 22 -j ACCEPT
 ```
 ![dem2](dem2.PNG?raw=true)
 ***
-3 Запретить только ssh , продемонстрировать что icmp работает, но сервер не пингается
+3 Запретить только ssh , продемонстрировать что icmp работает
 ***
 ```
 iptables -I INPUT -s 192.168.11.1 -p tcp --dport 22 -j DROP
