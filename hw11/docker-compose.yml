@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  first:
+    build: "."
+    networks:
+      - net
+    ports: 
+      - "8000:22"
+  second:
+    build: "."
+    networks:
+      - net
+    ports: 
+      - "8001:22"
+
+networks:
+  net:
+    driver: bridge
